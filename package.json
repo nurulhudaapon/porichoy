@@ -1,0 +1,30 @@
+{
+  "name": "porichoy",
+  "version": "0.0.2",
+  "description": "This npm package will help you to verify NID pretty easily in your Node application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nurulhuda859/porichoy.git"
+  },
+  "keywords": [
+    "porichoy",
+    "nid",
+    "bangladesh",
+    "verify",
+    "verifynid",
+    "check"
+  ],
+  "author": "Nurul Huda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nurulhuda859/porichoy/issues"
+  },
+  "homepage": "https://github.com/nurulhuda859/porichoy#readme",
+  "dependencies": {
+    "request": "^2.88.0"
+  }
+}
