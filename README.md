@@ -27,6 +27,8 @@ if (porichoy.verify(person)) {
 ```js
 porichoy.verify(<object>)
 ```
+```
 nid: <string>
 dob: YYY-MM-DD
 name: Full Name
+```
