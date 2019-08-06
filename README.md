@@ -17,6 +17,7 @@ const porichoy = require("porichoy");
 porichoy.setApiKey("Your API Key");
 
 //For seting porichoy to test fail or test pass mode.
+porichoy.setModeToProduction(); //Not yet available
 porichoy.setModeToTestPass();
 porichoy.setModeToTestFail();
 
@@ -29,6 +30,13 @@ porichoy.getApiKey();
 ## Example Usage
 
 ```js
+const porichoy = require("porichoy");
+
+porichoy.setApiKey("xxxxx11ddc4axxxxxxxx");
+
+porichoy.setModeToTestPass();
+
+
 const person = {
   nid: "123456789012",
   dob: "1999-11-11",

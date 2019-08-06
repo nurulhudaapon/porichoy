@@ -10,6 +10,10 @@ module.exports = (apiKey, person, mode, callback) => {
     national_id=${person.nid}&
     person_dob=${person.dob}&
     person_fullname=${person.name}`;
+  const productionUrl = `${baseUrl}/testkyc/check-person?
+    national_id=${person.nid}&
+    person_dob=${person.dob}&
+    person_fullname=${person.name}`;
 
   const getModeUrl = mode => {
     if (mode == "testPass") {
@@ -17,6 +21,9 @@ module.exports = (apiKey, person, mode, callback) => {
     }
     if (mode == "testFail") {
       return testFailUrl;
+    }
+    if (mode == "production") {
+      return productionUrl;
     }
   };
   const url = getModeUrl(mode);

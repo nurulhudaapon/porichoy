@@ -19,6 +19,10 @@ const setMode = mode => {
   mode = mode;
   return null;
 };
+const setModeToProduction = () => {
+  mode = "production";
+  return null;
+};
 const setModeToTestPass = () => {
   mode = "testPass";
   return null;
@@ -50,6 +54,7 @@ module.exports = {
   setApiKey,
   getApiKey,
   setMode,
+  setModeToProduction,
   setModeToTestFail,
   setModeToTestPass,
   getMode,
