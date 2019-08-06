@@ -1,48 +1,57 @@
-const req = require("request");
+const sendRequest = require("./utils");
 
 // configaration
 let apiKey = process.env.PORICHOY_API_KEY;
+let mode = process.env.PORICHOY_MODE || "testPass";
 // api key setter
-const setApiKey = (key) => {
+const setApiKey = key => {
   apiKey = key;
-  console.log('api key seted');
+  // console.log('api key has been seted');
   return null;
-}
+};
 // api key getter
 const getApiKey = () => {
-  if (apiKey == undefined) return 'API Key is no set.';
+  if (!apiKey) return "API Key is no set.";
   return apiKey;
-}
-
+};
+// mode setter
+const setMode = mode => {
+  mode = mode;
+  return null;
+};
+const setModeToTestPass = () => {
+  mode = "testPass";
+  return null;
+};
+const setModeToTestFail = () => {
+  mode = "testFail";
+  return null;
+};
+// mode getter
+const getMode = () => {
+  return mode;
+};
 
 // person verifier
-const verify = person => {
-  if (apiKey == '' || apiKey == null || apiKey == undefined) return 'Set API Key first.';
-  const url = `https://kyc24nme.azure-api.net/testkyc/check-person?
-  national_id=${person.nid}&
-  person_dob=${person.dob}&
-  person_fullname=${person.name}`;
+const verify = (person, callback) => {
+  if (!apiKey) return "Set API Key first.";
+  const processData = data => {
+    // console.log(data);
+    if(callback) {
 
-  const options = {
-    method: "POST",
-    url,
-    headers: {
-      "Ocp-Apim-Subscription-Key": apiKey
+      callback(data.passKyc)
     }
   };
-  req(options, function(error, response, body) {
-    if (!error && response.statusCode == 200) {
-      const info = body.split("'")[3];
-    } else {
-      console.log("Something went wrong.");
-    }
-  });
+  sendRequest(apiKey, person, mode, processData);
 };
 
 // exporting modules
 module.exports = {
   setApiKey,
   getApiKey,
+  setMode,
+  setModeToTestFail,
+  setModeToTestPass,
+  getMode,
   verify
-}
-
+};

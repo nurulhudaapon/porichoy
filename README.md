@@ -1,34 +1,46 @@
-# porichoy
-
 # Porichoy - NID Verifier
+
 This npm package is still under mass development.
 
-## Super simple to use
+## Installation
 
 ```js
-const porichoy = require('porichoy');
+npm i porichoy;
+```
 
+## Configaration
 
-let person = {
+```js
+const porichoy = require("porichoy");
+
+// For setting API Key.
+porichoy.setApiKey("Your API Key");
+
+//For seting porichoy to test fail or test pass mode.
+porichoy.setModeToTestPass();
+porichoy.setModeToTestFail();
+
+// For getting mode.
+porichoy.getMode();
+// For getting API Key.
+porichoy.getApiKey();
+```
+
+## Example Usage
+
+```js
+const person = {
   nid: "123456789012",
   dob: "1999-11-11",
   name: "Rejaul Kabir"
 };
 
-if (porichoy.verify(person)) {
-    console.log("The person's NID is real")
-} else {
-    console.log("The person's NID is fake")
-}
-```
-
-
-## Datatype of arguments
-```js
-porichoy.verify(<object>)
-```
-```
-nid: <string>
-dob: YYY-MM-DD
-name: Full Name
+porichoy.verify(person, function doThings(result) {
+  //result will return true if the verification succeed.
+  if (result) {
+    console.log("The person's NID is real");
+  } else {
+    console.log("The person's NID is fake");
+  }
+});
 ```
