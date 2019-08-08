@@ -15,11 +15,13 @@ const porichoy = require("porichoy");
 
 // For setting API Key.
 porichoy.setApiKey("Your API Key");
+  //or set env variable PORICHOY.API_KEY = <Your API Key>
 
 //For seting porichoy to test fail or test pass mode.
 porichoy.setModeToProduction(); //Not yet available
 porichoy.setModeToTestPass();
 porichoy.setModeToTestFail();
+  //or set env variable PORICHOY.MODE = testPass|testFail|production
 
 // For getting mode.
 porichoy.getMode();
