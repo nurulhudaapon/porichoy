@@ -37,15 +37,10 @@ module.exports = (apiKey, person, mode, callback) => {
   };
   function parseData(error, response, body) {
     if (!error && response.statusCode == 200) {
-      const passKyc = body.split("'")[3];
-      const json = body.replace(/'/g, '"');
-      object = JSON.parse(json);
-      // console.log(object);
-      callback(object)
+      callback(body)
     } else {
       console.error(error);
     }
   }
   req(options, parseData);
-  // console.log(object);
 };

@@ -1,6 +1,10 @@
-# Porichoy - NID Verifier
+# Porichoy - NID Verification Gateway of Bangladesh
+This package will make it very easy to use Porichoy API in your NodeJS project.
 
-This npm package is still under mass development.
+Visit the official website of Porichoy API to get your API Key: http://www.porichoy.gov.bd/
+For Porichoy API documentation: https://kyc24nme.portal.azure-api.net/docs/services
+
+This npm package is still under mass development. This package is not managed by the officals of Porichoy API.
 
 ## Installation
 
@@ -14,10 +18,10 @@ npm i porichoy;
 const porichoy = require("porichoy");
 
 // For setting API Key.
-porichoy.setApiKey("Your API Key");
+porichoy.setApiKey("<Your API Key>");
   //or set env variable PORICHOY.API_KEY = <Your API Key>
 
-//For seting porichoy to test fail or test pass mode.
+//For seting porichoy to test fail, test pass or production mode.
 porichoy.setModeToProduction(); //Not yet available
 porichoy.setModeToTestPass();
 porichoy.setModeToTestFail();
@@ -34,11 +38,11 @@ porichoy.getApiKey();
 ```js
 const porichoy = require("porichoy");
 
-porichoy.setApiKey("xxxxx11ddc4axxxxxxxx");
+porichoy.setApiKey("<Your API Key>");
 
 porichoy.setModeToTestPass();
 
-
+// The information to be verified
 const person = {
   nid: "123456789012",
   dob: "1999-11-11",

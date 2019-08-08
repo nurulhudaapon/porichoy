@@ -1,4 +1,4 @@
-const sendRequest = require("./utils");
+const sendRequest = require("./utils/utils");
 
 // configaration
 let apiKey = process.env.PORICHOY_API_KEY;
@@ -20,6 +20,7 @@ const setMode = mode => {
   return null;
 };
 const setModeToProduction = () => {
+  console.log('Currently production mode is not available.');
   mode = "production";
   return null;
 };

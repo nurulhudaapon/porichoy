@@ -1,4 +1,4 @@
-const porichoy = require("./index");
+const porichoy = require('../src/index');
 
 let person = {
   nid: "123456789012",
