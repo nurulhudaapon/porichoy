@@ -38,11 +38,9 @@ const getMode = () => {
 };
 
 // person verifier
-const verify = (person, callback, option) => {
+const verify = (person, callback) => {
   if (!apiKey) return "Set API Key first.";
   const processData = data => {
-    
-    if (option && option.fullRes == true) return data;
     function getStatus() {
       if (data.passKyc == 'yes') return true;
       return false;
@@ -52,7 +50,7 @@ const verify = (person, callback, option) => {
     // console.log(data);
     if(callback) {
 
-      callback(status, data)
+      callback(status)
     }
   };
   sendRequest(apiKey, person, mode, processData);

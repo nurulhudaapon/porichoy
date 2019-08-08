@@ -39,7 +39,7 @@ const person = {
   dob: "1999-11-11",
   name: "Rejaul Kabir"
 };
-porichoy.verify(person, function doThings(result) {
+porichoy.verify(person, s => {
   if (result) {
     console.log("The person's NID is real");
   } else {

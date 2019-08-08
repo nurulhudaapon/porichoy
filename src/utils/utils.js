@@ -37,7 +37,7 @@ module.exports = (apiKey, person, mode, callback) => {
   };
   function parseData(error, response, body) {
     if (!error && response.statusCode == 200) {
-      callback(body)
+      callback(JSON.parse(body))
     } else {
       console.error(error);
     }

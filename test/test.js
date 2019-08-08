@@ -8,22 +8,21 @@ let person = {
 
 porichoy.setApiKey("9a3f37f11ddc4ac7b673c9d370b21dd4");
 // console.log(porichoy.getApiKey());
-porichoy.setModeToTestFail();
-// porichoy.setModeToTestPass();
+// porichoy.setModeToTestFail();
+porichoy.setModeToTestPass();
 
 
-porichoy.verify(person, function doThings(result, fullRes) {
-  //result will return true if the verification succeed.
-  if (result) {
+porichoy.verify(person, s => {
+  //s will return true if the verification succeed.
+  if (s) {
     console.log("The person's NID is real");
-    console.log(fullRes);
     
   } else {
     console.log("The person's NID is fake");
   }
 });
 // Getting full response from Porichoy API
-porichoy.verify(person, function doThings(result) {
-console.log(result);
+// porichoy.verify(person, s => {
+// console.log(s);
 
-}, {fullRes: true});
+// }, {fullRes: true});

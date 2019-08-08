@@ -1,8 +1,9 @@
-# Porichoy - NID Verification Gateway of Bangladesh
+## Porichoy - NID Verification Gateway of Bangladesh
+# [Porichoy](http://www.porichoy.gov.bd/) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/nurulhuda859/porichoy/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/porichoy)](https://www.npmjs.com/package/porichoy)
 This package will make it very easy to use Porichoy API in your NodeJS project.
 
-Visit the official website of Porichoy API to get your API Key: http://www.porichoy.gov.bd/
-For Porichoy API documentation: https://kyc24nme.portal.azure-api.net/docs/services
+* Visit the official [website](http://www.porichoy.gov.bd/) of Porichoy API to get your API Key.
+* For Porichoy API documentation visit this [website](https://kyc24nme.portal.azure-api.net/docs/services).
 
 This npm package is still under mass development. This package is not managed by the officals of Porichoy API.
 
@@ -49,9 +50,9 @@ const person = {
   name: "Rejaul Kabir"
 };
 
-porichoy.verify(person, function doThings(result) {
-  //result will return true if the verification succeed.
-  if (result) {
+porichoy.verify(person, s => {
+  //s will return true if the verification succeed.
+  if (s) {
     console.log("The person's NID is real");
   } else {
     console.log("The person's NID is fake");
