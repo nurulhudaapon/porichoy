@@ -40,10 +40,16 @@ const getMode = () => {
 const verify = (person, callback) => {
   if (!apiKey) return "Set API Key first.";
   const processData = data => {
+    function getStatus() {
+      if (data.passKyc == 'yes') return true;
+      return false;
+    }
+      const status = getStatus();
+    
     // console.log(data);
     if(callback) {
 
-      callback(data.passKyc)
+      callback(status)
     }
   };
   sendRequest(apiKey, person, mode, processData);
