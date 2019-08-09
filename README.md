@@ -1,6 +1,7 @@
-## Porichoy - NID Verification Gateway of Bangladesh
+## [Porichoy](http://www.porichoy.gov.bd/) &middot; NID Verification Gateway of Bangladesh
 # [![NPM](https://nodei.co/npm/porichoy.png)](https://nodei.co/npm/porichoy/)
-# (http://www.porichoy.gov.bd/) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/nurulhuda859/porichoy/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/porichoy)](https://www.npmjs.com/package/porichoy)
+#  [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/nurulhuda859/porichoy/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/porichoy)](https://www.npmjs.com/package/porichoy)
+
 This package will make it very easy to use Porichoy API in your NodeJS project.
 
 * Visit the official [website](http://www.porichoy.gov.bd/) of Porichoy API to get your API Key.
@@ -26,9 +27,12 @@ porichoy.setApiKey("<Your API Key>");
   //or set env variable PORICHOY.API_KEY = <Your API Key>
 
 //For seting porichoy to test fail, test pass or production mode.
-porichoy.setModeToProduction(); //Not yet available
-porichoy.setModeToTestPass();
+porichoy.setModeToProduction();
+porichoy.setModeToTestPass(); // It is the default mode.
 porichoy.setModeToTestFail();
+// or
+porichoy.setMode('testPass'); // All different modes are: 'testPass'|'testFail'|'production'
+
   //or set env variable PORICHOY.MODE = testPass|testFail|production
 
 // For getting mode.
@@ -62,3 +66,9 @@ porichoy.verify(person, s => {
   }
 });
 ```
+## Modes
+| Name | Description | Method to Set |
+|--------|--------------------|-------------|
+| 'testPass' | In this mode every of your verification request will succeed, mimicking the providing information as a real NID. | `porichoy.setModeToTestPass();` or `porichoy.setMode('testPass');`
+| 'testFail' | In this mode every of your verification request will fail, mimicking the providing information as a real NID.| `porichoy.setModeToTestFail();` or `porichoy.setMode('testFail');`
+| 'production' | In this mode every of your verification request will be verified with the real database. Note you must need to subscribe for production API Key in order to use this mode. | `porichoy.setModeToTestProduction();` or `porichoy.setMode('production')`;
