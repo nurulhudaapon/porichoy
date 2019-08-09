@@ -1,4 +1,5 @@
-const sendRequest = require("./utils/utils");
+// const sendRequest = require("./utils/utils");
+const sendRequest = require("./utils/sendRequest");
 
 // configaration
 let apiKey = process.env.PORICHOY_API_KEY;
@@ -37,24 +38,33 @@ const getMode = () => {
 };
 
 // person verifier
-const verify = (person, callback) => {
+// const verify = (person, callback2) => {
 
-  if (!apiKey) return "Set API Key first.";
+//   if (!apiKey) return "Set API Key first.";
 
-  const processData = data => {
-    function getStatus() {
-      if (data.passKyc == 'yes') return true;
-      return false;
-    }
-      const status = getStatus();
+//   const callback = data => {
+//     function getStatus() {
+//       if (data.passKyc == 'yes') return true;
+//       return false;
+//     }
+//       const status = getStatus();
     
-    // console.log(data);
-    if(callback) {
+//     // console.log(data);
+//     if(callback) {
 
-      callback(status, data.errorCode, data.message, data)
-    }
-  };
-  sendRequest(apiKey, person, mode, processData);
+//       callback2(status, data.errorCode, data.message, data)
+//     }
+//   };
+//   sendRequest(apiKey, person, mode, callback);
+// };
+// person verifier
+const verify = (person, callback) => {
+  function getData(data) {
+    // console.log(data);
+    callback(data.passKyc)
+    
+  }
+  sendRequest(apiKey, person, mode, getData);
 };
 
 // exporting modules
@@ -66,5 +76,5 @@ module.exports = {
   setModeToTestFail,
   setModeToTestPass,
   getMode,
-  verify
+  verify,
 };

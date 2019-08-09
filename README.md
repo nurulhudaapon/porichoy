@@ -1,15 +1,13 @@
 ## [Porichoy](http://www.porichoy.gov.bd/) &middot; NID Verification Gateway of Bangladesh
-# [![NPM](https://nodei.co/npm/porichoy.png)](https://nodei.co/npm/porichoy/)
-#  [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/nurulhuda859/porichoy/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/porichoy)](https://www.npmjs.com/package/porichoy)
+# [![NPM](https://nodei.co/npm/porichoy.png)](https://nodei.co/npm/porichoy/) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/nurulhuda859/porichoy/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/porichoy)](https://www.npmjs.com/package/porichoy)
 
+## Intro
 This package will make it very easy to use Porichoy API in your NodeJS project.
+This package is now ready to use in production. Although more new features are on the way. Feel free to provide feedback, I will highly appreciate it.
 
 * Visit the official [website](http://www.porichoy.gov.bd/) of Porichoy API to get your API Key.
 * For Porichoy API documentation visit this [website](https://kyc24nme.portal.azure-api.net/docs/services).
-
-This package is now ready to use in production. Although more new features are on the way. Feel free to provide feedback, I will highly appreciate it.
-
-This npm package is still under mass development. This package is not managed by the officals of Porichoy API.
+* This npm package is still under mass development. This package is not managed by the officals of Porichoy API.
 
 ## Installation
 
@@ -71,4 +69,4 @@ porichoy.verify(person, s => {
 |--------|--------------------|-------------|
 | 'testPass' | In this mode every of your verification request will succeed, mimicking the providing information as a real NID. | `porichoy.setModeToTestPass();` or `porichoy.setMode('testPass');`
 | 'testFail' | In this mode every of your verification request will fail, mimicking the providing information as a real NID.| `porichoy.setModeToTestFail();` or `porichoy.setMode('testFail');`
-| 'production' | In this mode every of your verification request will be verified with the real database. Note you must need to subscribe for production API Key in order to use this mode. | `porichoy.setModeToTestProduction();` or `porichoy.setMode('production')`;
+| 'production' | In this mode every of your verification request will be verified with the real database. Note you must need to subscribe for production API Key in order to use this mode. | `porichoy.setModeToProduction();` or `porichoy.setMode('production')`;
