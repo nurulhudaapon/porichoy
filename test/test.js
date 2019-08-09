@@ -9,10 +9,10 @@ let person = {
 porichoy.setApiKey("9a3f37f11ddc4ac7b673c9d370b21dd4");
 // console.log(porichoy.getApiKey());
 // porichoy.setModeToTestFail();
-porichoy.setModeToTestPass();
+// porichoy.setModeToTestPass();
 
 
-porichoy.verify(person, s => {
+porichoy.verify(person, (s) => {
   //s will return true if the verification succeed.
   if (s) {
     console.log("The person's NID is real");

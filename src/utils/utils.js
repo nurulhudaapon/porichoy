@@ -10,7 +10,7 @@ module.exports = (apiKey, person, mode, callback) => {
     national_id=${person.nid}&
     person_dob=${person.dob}&
     person_fullname=${person.name}`;
-  const productionUrl = `${baseUrl}/testkyc/check-person?
+  const productionUrl = `${baseUrl}/kyc/check-person?
     national_id=${person.nid}&
     person_dob=${person.dob}&
     person_fullname=${person.name}`;

@@ -1,5 +1,6 @@
 ## Porichoy - NID Verification Gateway of Bangladesh
-# [Porichoy](http://www.porichoy.gov.bd/) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/nurulhuda859/porichoy/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/porichoy)](https://www.npmjs.com/package/porichoy)
+# [![NPM](https://nodei.co/npm/porichoy.png)](https://nodei.co/npm/porichoy/)
+# (http://www.porichoy.gov.bd/) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/nurulhuda859/porichoy/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/porichoy)](https://www.npmjs.com/package/porichoy)
 This package will make it very easy to use Porichoy API in your NodeJS project.
 
 * Visit the official [website](http://www.porichoy.gov.bd/) of Porichoy API to get your API Key.

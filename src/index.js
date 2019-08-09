@@ -20,7 +20,6 @@ const setMode = mode => {
   return null;
 };
 const setModeToProduction = () => {
-  console.log('Currently production mode is not available.');
   mode = "production";
   return null;
 };
@@ -39,7 +38,9 @@ const getMode = () => {
 
 // person verifier
 const verify = (person, callback) => {
+
   if (!apiKey) return "Set API Key first.";
+
   const processData = data => {
     function getStatus() {
       if (data.passKyc == 'yes') return true;
@@ -50,7 +51,7 @@ const verify = (person, callback) => {
     // console.log(data);
     if(callback) {
 
-      callback(status)
+      callback(status, data.errorCode, data.message, data)
     }
   };
   sendRequest(apiKey, person, mode, processData);
