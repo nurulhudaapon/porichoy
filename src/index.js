@@ -66,6 +66,25 @@ const verify = (person, callback) => {
   }
   sendRequest(apiKey, person, mode, getData);
 };
+// person verifier
+const valid = async (person) => {
+  return new Promise((resolve, reject) => {
+  function getData(data) {
+        function getStatus() {
+      if (data.passKyc == 'yes') return true;
+      return false;
+    }
+      const status = getStatus();
+
+    // console.log(resObj);
+    resolve(status)
+  }
+  sendRequest(apiKey, person, mode, getData);
+  // reject(new Error('Something went wrong'));
+  });
+
+
+};
 
 // exporting modules
 module.exports = {
@@ -77,4 +96,5 @@ module.exports = {
   setModeToTestPass,
   getMode,
   verify,
+  valid
 };

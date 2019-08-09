@@ -6,14 +6,8 @@ let resObj = '';
 
 module.exports = (apiKey, person, mode, callback) => {
   const testPassPath = `/testkyc/check-person?national_id=${person.nid}&person_dob=${person.dob}&person_fullname=${encodeURI(person.name)}`;
-  const testFailPath = `/testkyc-fail/check-person?
-    national_id=${person.nid}&
-    person_dob=${person.dob}&
-    person_fullname=${encodeURI(person.name)}`;
-  const productionPath = `/kyc/check-person?
-    national_id=${person.nid}&
-    person_dob=${person.dob}&
-    person_fullname=${encodeURI(person.name)}`;
+  const testFailPath = `/testkyc-fail/check-person?national_id=${person.nid}&person_dob=${person.dob}&person_fullname=${encodeURI(person.name)}`;
+  const productionPath = `/kyc/check-person?national_id=${person.nid}&person_dob=${person.dob}&person_fullname=${encodeURI(person.name)}`;
 
   const getModePath = mode => {
     if (mode == "testPass") {
@@ -45,7 +39,7 @@ module.exports = (apiKey, person, mode, callback) => {
 
     res.on("end", () => {
       resObj = JSON.parse(rawData);
-    //   console.log(resObj);
+      // console.log(rawData, resObj);
       callback(resObj);
     });
   });
