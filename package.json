@@ -1,6 +1,6 @@
 {
   "name": "porichoy",
-  "version": "0.1.1",
+  "version": "1.1.0",
   "description": "This npm package will help you to verify NID pretty easily in your Node application.",
   "main": "src/index.js",
   "scripts": {
