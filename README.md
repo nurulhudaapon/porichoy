@@ -6,6 +6,8 @@ This package will make it very easy to use Porichoy API in your NodeJS project.
 * Visit the official [website](http://www.porichoy.gov.bd/) of Porichoy API to get your API Key.
 * For Porichoy API documentation visit this [website](https://kyc24nme.portal.azure-api.net/docs/services).
 
+This package is now ready to use in production. Although more new features are on the way. Feel free to provide feedback, I will highly appreciate it.
+
 This npm package is still under mass development. This package is not managed by the officals of Porichoy API.
 
 ## Installation
