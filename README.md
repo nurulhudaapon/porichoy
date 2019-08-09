@@ -2,7 +2,7 @@
 # [![NPM](https://nodei.co/npm/porichoy.png)](https://nodei.co/npm/porichoy/) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/nurulhuda859/porichoy/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/porichoy)](https://www.npmjs.com/package/porichoy)
 
 ## Intro
-This package will make it very easy to use Porichoy API in your NodeJS project.
+This package will make it very easy to use Porichoy API in your NodeJS project. It is zero dependency package so you will get faster perfermance than using other aproaches like 'request' module.
 This package is now ready to use in production. Although more new features are on the way. Feel free to provide feedback, I will highly appreciate it.
 
 * Visit the official [website](http://www.porichoy.gov.bd/) of Porichoy API to get your API Key.
