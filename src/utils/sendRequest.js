@@ -1,10 +1,10 @@
 const https = require("https");
 
 const hostname = "kyc24nme.azure-api.net";
-let rawData = '';
-let resObj = '';
 
 module.exports = (apiKey, person, mode, callback) => {
+  let rawData = '';
+  let resObj = '';
   const testPassPath = `/testkyc/check-person?national_id=${person.nid}&person_dob=${person.dob}&person_fullname=${encodeURI(person.name)}`;
   const testFailPath = `/testkyc-fail/check-person?national_id=${person.nid}&person_dob=${person.dob}&person_fullname=${encodeURI(person.name)}`;
   const productionPath = `/kyc/check-person?national_id=${person.nid}&person_dob=${person.dob}&person_fullname=${encodeURI(person.name)}`;
