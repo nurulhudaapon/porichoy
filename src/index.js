@@ -24,6 +24,10 @@ const setModeToProduction = () => {
   mode = "production";
   return null;
 };
+const setModeToTest = () => {
+  mode = "test";
+  return null;
+};
 const setModeToTestPass = () => {
   mode = "testPass";
   return null;
@@ -94,6 +98,7 @@ module.exports = {
   setModeToProduction,
   setModeToTestFail,
   setModeToTestPass,
+  setModeToTest,
   getMode,
   verify,
   valid

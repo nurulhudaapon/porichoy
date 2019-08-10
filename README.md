@@ -98,10 +98,12 @@ const person = {
   };
 ```
 ## Modes
+#### The default mode is 'testPass'
 | Name | Description | Method to Set |
 |--------|--------------------|-------------|
-| 'testPass' | In this mode every of your verification request will succeed, mimicking the providing information as a real NID. | `porichoy.setModeToTestPass();` or `porichoy.setMode('testPass');`
-| 'testFail' | In this mode every of your verification request will fail, mimicking the providing information as a real NID.| `porichoy.setModeToTestFail();` or `porichoy.setMode('testFail');`
+| 'test' | In this mode if you send data from this [Sample Valid Data](https://porichoy.herokuapp.com/valid-data) then your verification will succeed otherwise it will fail. | `porichoy.setModeToTes();` or `porichoy.setMode('test');`
+| 'testPass' | In this mode every of your verification request will succeed, mimicking the provided information as a real NID. | `porichoy.setModeToTestPass();` or `porichoy.setMode('testPass');`
+| 'testFail' | In this mode every of your verification request will fail, mimicking the provided information as a fake NID.| `porichoy.setModeToTestFail();` or `porichoy.setMode('testFail');`
 | 'production' | In this mode every of your verification request will be verified with the real database. Note you must need to subscribe for production API Key in order to use this mode. | `porichoy.setModeToProduction();` or `porichoy.setMode('production')`;
 ## Methods
 | Name | Description |

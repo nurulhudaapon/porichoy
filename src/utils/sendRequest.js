@@ -1,15 +1,18 @@
 const https = require("https");
 
-const hostname = "kyc24nme.azure-api.net";
 
 module.exports = (apiKey, person, mode, callback) => {
   let rawData = '';
   let resObj = '';
+  const testPath = `/testkyc/check-person?national_id=${person.nid}&person_dob=${person.dob}&person_fullname=${encodeURI(person.name)}`;
   const testPassPath = `/testkyc/check-person?national_id=${person.nid}&person_dob=${person.dob}&person_fullname=${encodeURI(person.name)}`;
   const testFailPath = `/testkyc-fail/check-person?national_id=${person.nid}&person_dob=${person.dob}&person_fullname=${encodeURI(person.name)}`;
   const productionPath = `/kyc/check-person?national_id=${person.nid}&person_dob=${person.dob}&person_fullname=${encodeURI(person.name)}`;
-
+  
   const getModePath = mode => {
+    if (mode == "test") {
+      return testPath;
+    }
     if (mode == "testPass") {
       return testPassPath;
     }
@@ -20,6 +23,13 @@ module.exports = (apiKey, person, mode, callback) => {
       return productionPath;
     }
   };
+  const getModeHostname = mode => {
+    if (mode == "test") {
+      return 'porichoy.herokuapp.com';
+    }
+    return 'kyc24nme.azure-api.net';
+  };
+  const hostname = getModeHostname(mode);
   const path = getModePath(mode);
   const options = {
     hostname,
