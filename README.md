@@ -3,11 +3,11 @@
 ```js
 const porichoy = require('porichoy');
 
-const person = {nid: "1234567890", dob: "1999-11-11", name: "Rejaul Kabir"};
+const person = {nid: "1456782945", dob: "1999-11-29", name: "Asik Ahmed"};
 
 const createAccount = async () => {
-  if(!await porichoy.valid(person)) return;
-    //Create account for the person
+  if(await porichoy.valid(person)) {
+    //Your code for creating account.
   }
 }
 ```
@@ -27,44 +27,54 @@ npm i porichoy;
 ```
 
 ## Configaration
-
+#### Setting API Key.
 ```js
-const porichoy = require("porichoy");
+porichoy.setApiKey(<api_key>);
+```
+or set env variable `PORICHOY_API_KEY = <api_key>`
 
-// For setting API Key.
-porichoy.setApiKey("<Your API Key>");
-  //or set env variable PORICHOY.API_KEY = <Your API Key>
-
-//For seting porichoy to test fail, test pass or production mode.
+#### Setting mode.
+Information about mode is [here.](#modes)
+```js
+porichoy.setModeToTest(); // It is the default mode.
 porichoy.setModeToProduction();
-porichoy.setModeToTestPass(); // It is the default mode.
+porichoy.setModeToTestPass();
 porichoy.setModeToTestFail();
-// or
-porichoy.setMode('testPass'); // All different modes are: 'testPass'|'testFail'|'production'
+```
+or 
+```js
+porichoy.setMode(<mode_name>);
+```
+or set env variable `NODE_ENV = <mode_name>`
 
-  //or set env variable PORICHOY.MODE = testPass|testFail|production
-
-// For getting mode.
+####Getting mode.
+```js
 porichoy.getMode();
-// For getting API Key.
+```
+####Getting API Key.
+```js
 porichoy.getApiKey();
 ```
 
 ## Example Usage
-The callback approach
+####The promise based approach
 ```js
 const porichoy = require("porichoy");
 
-porichoy.setApiKey("<Your API Key>");
+porichoy.setApiKey(<api_key>);
 
-porichoy.setModeToTestPass();
+const person = {nid: "1456782945", dob: "1999-11-29", name: "Asik Ahmed"};
+
+(async () => console.log((await porichoy.valid(person))? 'Valid NID':'Invalid NID'))();
+```
+####The callback approach
+```js
+const porichoy = require("porichoy");
+
+porichoy.setApiKey(<api_key>);
 
 // The information to be verified
-const person = {
-  nid: "123456789012",
-  dob: "1999-11-11",
-  name: "Rejaul Kabir"
-};
+const person = {nid: "1456782945", dob: "1999-11-29", name: "Asik Ahmed"};
 
 porichoy.verify(person, s => {
   //s will return true if the verification succeed.
@@ -74,14 +84,6 @@ porichoy.verify(person, s => {
     console.log("The person's NID is fake");
   }
 });
-```
-The promise based approach
-```js
-const porichoy = require("porichoy");
-
-const person = {nid: "1234567890",dob: "1999-11-11",name: "Rejaul Kabir"};
-
-(async () => console.log((await porichoy.valid(person))? 'Valid NID':'Invalid NID'))();
 ```
 ## Person Object Schema
 | Key | Data Type | Description |
@@ -93,20 +95,22 @@ const person = {nid: "1234567890",dob: "1999-11-11",name: "Rejaul Kabir"};
 ```js
 const person = {
   nid: "1234567890",
-  dob: "1999-11-11",
+  dob: "1999-11-28",
   name: "Rejaul Kabir"
   };
 ```
 ## Modes
-#### The default mode is 'testPass'
+##### The default mode is 'test'
 | Name | Description | Method to Set |
 |--------|--------------------|-------------|
-| 'test' | In this mode if you send data from this [Sample Valid Data](https://porichoy.herokuapp.com/valid-data) then your verification will succeed otherwise it will fail. | `porichoy.setModeToTes();` or `porichoy.setMode('test');`
+| 'test' | In this mode if you send data from this [sample valid data](https://porichoy.herokuapp.com/valid-data) then your verification will succeed otherwise it will fail. [More info](https://porichoy.herokuapp.com/valid-data)| `porichoy.setModeToTes();` or `porichoy.setMode('test');`
 | 'testPass' | In this mode every of your verification request will succeed, mimicking the provided information as a real NID. | `porichoy.setModeToTestPass();` or `porichoy.setMode('testPass');`
 | 'testFail' | In this mode every of your verification request will fail, mimicking the provided information as a fake NID.| `porichoy.setModeToTestFail();` or `porichoy.setMode('testFail');`
 | 'production' | In this mode every of your verification request will be verified with the real database. Note you must need to subscribe for production API Key in order to use this mode. | `porichoy.setModeToProduction();` or `porichoy.setMode('production')`;
+
 ## Methods
 | Name | Description |
 |--------|----------|
 |`porichoy.valid(<Object>)`| This functions is promise based and it will return `true` if verification is success otherwise it will return `false`|
+<!-- |`porichoy.verify(<Object>, callback)`| .....| -->
 

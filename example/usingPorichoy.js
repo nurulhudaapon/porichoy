@@ -1,16 +1,7 @@
 const porichoy = require("porichoy");
 
-porichoy.setApiKey("<Your API Key>");
-// The information to be verified
-const person = {
-  nid: "123456789012",
-  dob: "1999-11-11",
-  name: "Rejaul Kabir"
-};
-porichoy.verify(person, s => {
-  if (s) {
-    console.log("The person's NID is real");
-  } else {
-    console.log("The person's NID is fake");
-  }
-});
+porichoy.setApiKey('<api_key>');
+
+const person = {nid: "1456782945", dob: "1999-11-29", name: "Asik Ahmed"};
+
+(async () => console.log((await porichoy.valid(person))? 'Valid NID':'Invalid NID'))();

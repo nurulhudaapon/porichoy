@@ -29,6 +29,7 @@ module.exports = (apiKey, person, mode, callback) => {
     }
     return 'kyc24nme.azure-api.net';
   };
+
   const hostname = getModeHostname(mode);
   const path = getModePath(mode);
   const options = {
